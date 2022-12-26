@@ -17,12 +17,9 @@
 
     <div class="container">  
 
-         <a target="_blank" href="https://docs.google.com/spreadsheets/d/1GNELZlT1MPkEnxvkbrUdwkF0UrMY5t9pQ3uYuWI-9Ww/edit#gid=0">
-        <i class="fas fa-external-link-alt"></i></a>
-
         <div class="row justify-content-center">
 
-            <form method="post" id="form" name="data_form" action="https://sheetdb.io/api/v1/izuhqechtxkjb" class="needs-validation bg-white p-4 rounded col-10 col-md-9 col-sm-8 col-lg-7" novalidate>
+            <form method="post" id="form" name="data_form" class="needs-validation bg-white p-4 rounded col-10 col-md-9 col-sm-8 col-lg-7" novalidate>
 
                 <h4 id="head" class="col-12 text-center mb-4 mt-1">Contact US</h4>
 
@@ -30,14 +27,14 @@
 
                   <div class="col-md-4 mb-3">
                     <label for="name1">First name</label>
-                    <input name="data[name1]" type="text" class="form-control" id="name1" placeholder="First name" required>
+                    <input name="name1" type="text" class="form-control" id="name1" placeholder="First name" required>
 
                   </div>
 
 
                   <div class="col-md-4 mb-3">
                     <label for="name2">Last name</label>
-                    <input  name="data[name2]"  type="text" class="form-control" id="name2" placeholder="Last name" required>
+                    <input  name="name2"  type="text" class="form-control" id="name2" placeholder="Last name" required>
 
                   </div>
 
@@ -51,7 +48,7 @@
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                       </div>
 
-                      <input name="data[username]"  type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" required>
+                      <input name="username"  type="text" class="form-control" id="username" placeholder="Username" aria-describedby="inputGroupPrepend" required>
                     </div>
 
                   </div>
@@ -65,7 +62,7 @@
         
                 <div class="form-group">
                     <label for="write_txt">Your Massege</label>
-                    <textarea  name="data[massege]"  class="form-control" id="write_txt" rows="5" required></textarea>
+                    <textarea  name="massege"  class="form-control" id="write_txt" rows="5" required></textarea>
                 </div>
         
                 <div class="form-group">
@@ -84,6 +81,20 @@
         </div>
     </div>
     <script src="script.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzazJ1vAYlhtPM_SJORCCI0Lhff8kpelFGMEYz1CcmRdhpCW-z0yh0StUgfPQlW7mZd/exec'
+  const form = document.forms['data_form']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      // .then(response => console.log('Success!', response))
+      // .catch(error => console.error('Error!', error.message))
+  })
+
+</script>
+    
+    
 </body>
 </html>
